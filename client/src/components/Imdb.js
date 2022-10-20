@@ -1,16 +1,17 @@
 import React, { useState,useEffect } from 'react';
-let titles = [];
-let names = [];
-let ratings = [];
-const movies = {};
-// let new1 = [];
-// const [titles, setTitle] = useState([]);
+
 
 const Imdb = ()=>{
+const [titles, setTitle] = useState([]);
+const [names, setName] = useState([]);
+const [ratings, setRating] = useState([]);
+
 //each page has 50 titles
 
 useEffect(()=> {
-  fetch(`https://www.imdb.com/search/title/?genres=comedy,action&start=${1}&explore=title_type,genres&ref_=adv_nxt`)
+  //for loop to be fixed
+  for (let increment = 1; increment < 200 ; increment+=50) {
+  fetch(`https://www.imdb.com/search/title/?genres=comedy,action&start=${increment}&explore=title_type,genres&ref_=adv_nxt`)
   .then(res=>{
     return res.text();
   })
@@ -19,46 +20,32 @@ useEffect(()=> {
 //get movies title block
 titlesBlocks.splice(0,1);
 //filter title html blocks to get title number
-titles = titlesBlocks.map(titleBlock=>titleBlock.split(`title/`)[1]).map(title=>title.split(`/?`)[0]);
-names = titlesBlocks.map(titleBlock=>titleBlock.split(`<img alt=`)[1]).map(name=>name.split(`class`)[0]);
 
-ratings = titlesBlocks.map(titlesBlock=>titlesBlock.split(`strong>`)[1]).map(rating=>{
+setTitle(titlesBlocks.map(titleBlock=>titleBlock.split(`title/`)[1]).map(title=>title.split(`/?`)[0]));
+
+setName(titlesBlocks.map(titleBlock=>titleBlock.split(`<img alt=`)[1]).map(name=>name.split(`class`)[0]));
+
+setRating(titlesBlocks.map(titlesBlock=>titlesBlock.split(`strong>`)[1]).map(rating=>{
   try{
     return rating.split(`<`)[0]}
   catch{
     return "no rating"
   }
+}))  
 
-  
-})   
-for (let index = 0; index < titles.length; index++) {
- console.log(`${titles[index]} ${names[index]} ${ratings[index]} `)
-}
    } 
-   )
+   )}
   } ,[])
-
-
-
-  // }
-  //put names and titles of movies in movies object
-  for (let index = 0; index < titles.length; index++) {
-    console.log(`${titles[index]} ${names[index]} ${ratings[index]} `)
-  }
   
   return(
     <div>
-    {console.log("titles")}
-   <h1>MOVIES</h1>
-   <h1>{titles}</h1>
+   {titles.map((title,index) => (
+        <h1>{`${index} ${title} ${names[index]} ${ratings[index]}}`}</h1>
+      ))}
+
     </div>
   )
-  // return(
-    //   <div>hello</div>
-    //   )
-    // console.log(movies);
-    
-    
+  
     
     
   }
