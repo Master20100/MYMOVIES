@@ -12,7 +12,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    favourite_movies: [Movie.schema]
+    favourite_movies: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Movie',
+    }]
 });
 
 // set up pre-save middleware to create password

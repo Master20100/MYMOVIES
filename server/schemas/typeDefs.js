@@ -24,13 +24,15 @@ const typeDefs = gql`
 
     type Query {
         me: User
-        movie(moveId: ID!): Movie
+        movies(username: String): [Movie]
+        movie(movieId: ID!): Movie
     }
 
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, password: String!): Auth
         addMovie(name: String!, description: String!, image: String!, rate: Number!, trailer: String!, live_stream_url: String!): Movie
+        addFavouriteMovie(movieId: ID!): User
     }
 `;
 
