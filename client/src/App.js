@@ -4,7 +4,7 @@ import Imdb from './components/Imdb';
 function App() {
   return (
     <div className="App">
-          <Imdb />
+          {Imdb()}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
