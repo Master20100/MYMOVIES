@@ -20,9 +20,7 @@ useEffect(()=> {
 titlesBlocks.splice(0,1);
 //filter title html blocks to get title number
 titles = titlesBlocks.map(titleBlock=>titleBlock.split(`title/`)[1]).map(title=>title.split(`/?`)[0]);
-console.log(titles);
 names = titlesBlocks.map(titleBlock=>titleBlock.split(`<img alt=`)[1]).map(name=>name.split(`class`)[0]);
-console.log(names);
 
 ratings = titlesBlocks.map(titlesBlock=>titlesBlock.split(`strong>`)[1]).map(rating=>{
   try{
@@ -30,9 +28,14 @@ ratings = titlesBlocks.map(titlesBlock=>titlesBlock.split(`strong>`)[1]).map(rat
   catch{
     return "no rating"
   }
+
+  
 })   
-  console.log(ratings)
-   } )
+for (let index = 0; index < titles.length; index++) {
+ console.log(`${titles[index]} ${names[index]} ${ratings[index]} `)
+}
+   } 
+   )
   } ,[])
 
 
@@ -40,7 +43,7 @@ ratings = titlesBlocks.map(titlesBlock=>titlesBlock.split(`strong>`)[1]).map(rat
   // }
   //put names and titles of movies in movies object
   for (let index = 0; index < titles.length; index++) {
-    movies[titles[index]] = names[index];
+    console.log(`${titles[index]} ${names[index]} ${ratings[index]} `)
   }
   
   return(
