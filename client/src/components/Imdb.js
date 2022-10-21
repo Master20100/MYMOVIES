@@ -42,7 +42,12 @@ export default function ImdbNew() {
         })
 
         setMovies(data)
-        
+         const response = async()=>{await fetch("/api/users/saveData", {
+    method: "POST",
+    body: JSON.stringify(movies),
+    headers: { "Content-Type": "application/json" },
+  });}
+  response();
         
     }
 
