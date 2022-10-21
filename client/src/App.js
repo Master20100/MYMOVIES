@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Imdb from './components/Imdb';
+// import Imdb from './components/Imdb';
+import ImdbNew from './components/Imdb'
 function App() {
   return (
     <div className="App">
-          {Imdb()}
+      <ImdbNew />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
