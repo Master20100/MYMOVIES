@@ -6,12 +6,16 @@ mutation addMovie(
     $name: String!, 
     $rating: String!,
     $year: String!,
-    $plot: String! ){
+    $plot: String!,
+    $image: String!,
+    
+    ){
         title
         name
         rating
         year
         plot
+        image
     }
 
 `;

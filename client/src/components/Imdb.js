@@ -32,6 +32,7 @@ export default function Imdb() {
         const tempRating = [];
         const tempYear = [];
         const tempPlot = [];
+        const tempImage = [];
         const data = [];
 
         for (let increment = 1; increment < 51 ; increment+=50) {
@@ -60,7 +61,7 @@ export default function Imdb() {
 
                 // tempPlot.push(...titlesBlocks.map(titleBlock=>titleBlock.split(`<p class="text-muted">`)[1]));
                 tempPlot.push(...titlesBlocks.map(titleBlock=>titleBlock.split(`<p class="text-muted">`)[1]).map(plot=>plot.split(`</p>`)[0]));
-
+                tempImage.push(...titlesBlocks.map(titleBlock=>titleBlock.split(`loadlate=`)[1]).map(plot=>plot.split(`"`)[1]));
             })
         }
     //    console.log(tempPlot[0]);
@@ -70,7 +71,8 @@ export default function Imdb() {
                 rating: tempRating[index],
                 name: tempName[index],
                 year:tempYear[index],
-                plot:tempPlot[index]
+                plot:tempPlot[index],
+                image:tempImage[index],
             })
         })
 // console.log(data);
@@ -106,6 +108,7 @@ export default function Imdb() {
             <li className="name">{movie.name}</li>
             <li className="year">{movie.year}</li>
             <li className="plot">{movie.plot}</li>
+            <li className="plot">{movie.image}</li>
             </ul>
             </div>
         ))
