@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_MOVIE } from '../utils/mutations';
+import {Link}  from "react-router-dom";
+
 export default function Imdb() {
     const [addMovie, { error }] = useMutation(ADD_MOVIE);
     const saveMovie = async (event) => {
@@ -96,6 +98,7 @@ export default function Imdb() {
 
     return (
         <>
+        <Link to="/">Log out </Link> 
         <button onClick={fetchImdb}>Submit</button>
         <button onClick={saveMovie}>Save Movie</button>
         {

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Imdb from './components/Imdb';
 import { Home } from './pages/Home';
@@ -37,6 +36,10 @@ function App() {
    <Route 
       path="/Register"
       element={<Register />}
+      />
+   <Route 
+      path="/Imdb"
+      element={<Imdb />}
       />
    
       
