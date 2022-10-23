@@ -4,13 +4,18 @@ import { ADD_MOVIE } from '../utils/mutations';
 export default function Imdb() {
     const [addMovie, { error }] = useMutation(ADD_MOVIE);
     const saveMovie = async (event) => {
+        console.log(event.target.parentNode.querySelector('.title').innerHTML);
+
         event.preventDefault();
         try {
           const { data } = await addMovie({
-            variables: { name: "inception", 
-                rating: "8.5",
-                year: "2009",
-                plot: "aaaa" },
+            variables: { 
+                title:event.target.parentNode.querySelector('.title').innerHTML,
+                name:event.target.parentNode.querySelector('.name').innerHTML, 
+                rating:event.target.parentNode.querySelector('.rating').innerHTML,
+                year: event.target.parentNode.querySelector('.year').innerHTML,
+                plot: event.target.parentNode.querySelector('.plot').innerHTML 
+            },
           });
     
         } catch (err) {
@@ -94,13 +99,13 @@ export default function Imdb() {
         
         movies.map(movie => (
             <div>
-            <button>Save to favorites</button>
+            <button onClick={saveMovie}>Save to favorites</button>
             <ul>
-            <li>{movie.title}</li>
-            <li>{movie.rating}</li>
-            <li>{movie.name}</li>
-            <li>{movie.year}</li>
-            <li>{movie.plot}</li>
+            <li className="title">{movie.title}</li>
+            <li className="rating">{movie.rating}</li>
+            <li className="name">{movie.name}</li>
+            <li className="year">{movie.year}</li>
+            <li className="plot">{movie.plot}</li>
             </ul>
             </div>
         ))
