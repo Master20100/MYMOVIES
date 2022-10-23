@@ -3,20 +3,16 @@ import './App.css';
 import Imdb from './components/Imdb';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
-import { Route,Routes,Router } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
-   
-    <div className="App">
-      <Router>
-      <Routes>
-      <Route exact path="/Login">
-</Route>
-</Routes>
-</Router>
-      {/* <Imdb /> */}
-    </div>
+    <>
+   <Header/>
+      <Imdb />
+<Footer/>
+    </>
   );
 }
 

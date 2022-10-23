@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-
 export default function ImdbNew() {
+    
     const [movies, setMovies] = useState([])
     const fetchImdb = async () => {
         const tempTitle = [];
@@ -62,9 +62,15 @@ export default function ImdbNew() {
         
     }
 
+    
+
+
+
+
     return (
         <>
         <button onClick={fetchImdb}>Submit</button>
+        <button onClick={""}>Save Movie</button>
         {
         
         movies.map(movie => (
@@ -82,7 +88,7 @@ export default function ImdbNew() {
         
         
         }
-        <button>save all</button>
+        <button onClick={""}>save all</button>
         </>
     )
 }
