@@ -1,27 +1,18 @@
 import React from 'react';
-import { NavLink, Router } from "react-router-dom";
-import { Login } from './Login';
+import { Link, Router } from "react-router-dom";
 
 
 export const Home = () => {
- 
-
   return (<>
 
+<Link to="/"> Home</Link>
+<Link to="/About">  About  </Link>
+<Link to="/login">Login </Link>
+<Link to="/Register">Register </Link> 
 
 
-  <NavLink
-    className="navbar-item"
-    activeClassName="is-active"
-    to="/"
-    exact
->
-	Home
-</NavLink>
+</>
+
   
-    <div>Home</div>
-    <button>Login</button>
-    <button>Register</button>
-    </>
   )
 }

@@ -102,7 +102,6 @@ export default function Imdb() {
         
         movies.map(movie => (
             <div>
-            <button onClick={saveMovie}>Save to favorites</button>
             <ul>
             <li className="title">{movie.title}</li>
             <li className="rating">{movie.rating}</li>
@@ -111,6 +110,7 @@ export default function Imdb() {
             <li className="plot">{movie.plot}</li>
             <li className="image">{movie.image}</li>
             </ul>
+            <button onClick={saveMovie}>Save to favorites</button>
             </div>
         ))
         
