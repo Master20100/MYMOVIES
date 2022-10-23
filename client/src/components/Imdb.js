@@ -14,7 +14,8 @@ export default function Imdb() {
                 name:event.target.parentNode.querySelector('.name').innerHTML, 
                 rating:event.target.parentNode.querySelector('.rating').innerHTML,
                 year: event.target.parentNode.querySelector('.year').innerHTML,
-                plot: event.target.parentNode.querySelector('.plot').innerHTML 
+                plot: event.target.parentNode.querySelector('.plot').innerHTML, 
+                image: event.target.parentNode.querySelector('.image').innerHTML, 
             },
           });
     
@@ -108,7 +109,7 @@ export default function Imdb() {
             <li className="name">{movie.name}</li>
             <li className="year">{movie.year}</li>
             <li className="plot">{movie.plot}</li>
-            <li className="plot">{movie.image}</li>
+            <li className="image">{movie.image}</li>
             </ul>
             </div>
         ))
