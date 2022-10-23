@@ -49,13 +49,13 @@ export default function ImdbNew() {
                 plot:tempPlot[index]
             })
         })
-
+// console.log(data);
         setMovies(data);
         console.log(movies);
         console.log(movies.length);
          const response = async()=>{await fetch("/api/users/saveData", {
     method: "POST",
-    body: JSON.stringify(movies.title),
+    body: JSON.stringify(movies),
     headers: { "Content-Type": "application/json" },
   });}
   response();
@@ -65,18 +65,24 @@ export default function ImdbNew() {
     return (
         <>
         <button onClick={fetchImdb}>Submit</button>
-        {movies.map(movie => (
+        {
+        
+        movies.map(movie => (
             <div>
+            <button>Save to favorites</button>
             <ul>
             <li>{movie.title}</li>
             <li>{movie.rating}</li>
             <li>{movie.name}</li>
             <li>{movie.year}</li>
             <li>{movie.plot}</li>
-            
             </ul>
             </div>
-        ))}
+        ))
+        
+        
+        }
+        <button>save all</button>
         </>
     )
 }
