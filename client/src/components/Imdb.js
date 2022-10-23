@@ -1,5 +1,24 @@
-import React, { useState } from 'react'
-export default function ImdbNew() {
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_MOVIE } from '../utils/mutations';
+export default function Imdb() {
+    const [addMovie, { error }] = useMutation(ADD_MOVIE);
+    const saveMovie = async (event) => {
+        event.preventDefault();
+        try {
+          const { data } = await addMovie({
+            variables: { name: "inception", 
+                rating: "8.5",
+                year: "2009",
+                plot: "aaaa" },
+          });
+    
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+
     
     const [movies, setMovies] = useState([])
     const fetchImdb = async () => {
@@ -70,7 +89,7 @@ export default function ImdbNew() {
     return (
         <>
         <button onClick={fetchImdb}>Submit</button>
-        <button onClick={""}>Save Movie</button>
+        <button onClick={saveMovie}>Save Movie</button>
         {
         
         movies.map(movie => (
@@ -92,3 +111,4 @@ export default function ImdbNew() {
         </>
     )
 }
+
