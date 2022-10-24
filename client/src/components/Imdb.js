@@ -37,7 +37,7 @@ export default function Imdb() {
         const tempPlot = [];
         const tempImage = [];
         const data = [];
-
+        console.log(movies);
         for (let increment = 1; increment < 51 ; increment+=50) {
             await fetch(`https://www.imdb.com/search/title/?genres=comedy,action&start=${increment}&explore=title_type,genres&ref_=adv_nxt`)
             .then(res=>{
@@ -89,6 +89,8 @@ export default function Imdb() {
   });}
   response();
         
+
+
     }
 
     
@@ -102,7 +104,6 @@ export default function Imdb() {
         <button onClick={fetchImdb}>Submit</button>
         <button onClick={saveMovie}>Save Movie</button>
         {
-        
         movies.map(movie => (
             <div>
             <ul>
@@ -124,3 +125,8 @@ export default function Imdb() {
     )
 }
 
+// things to work on:-
+// 1) save all to appear only when results retrieved
+// 2) how to send all data of movies ? apollo client or normal fetch
+// 3) why array is empty when submit is clicked first then changed
+// 4) error that appear in console.
