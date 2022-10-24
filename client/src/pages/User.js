@@ -2,6 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const User = () => {
+
+const getSavedMovies= ()=>{
+
+  
+}
+ 
+
   return (
     <>
     <div>Saved movies</div>
@@ -19,7 +26,7 @@ export const User = () => {
 <option value="plot">Plot</option>
 </select>
 <input type="Button" value="Go"/>
-<input type="Button" value="Saved movies"   />
+<input type="Button" value="Saved movies"/>
 </form>
 </>
 )
