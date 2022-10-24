@@ -3,6 +3,7 @@ import Imdb from './components/Imdb';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
+import { User } from './pages/User';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
@@ -40,6 +41,10 @@ function App() {
    <Route 
       path="/Imdb"
       element={<Imdb />}
+      />
+   <Route 
+      path="/User"
+      element={<User />}
       />
    
       
