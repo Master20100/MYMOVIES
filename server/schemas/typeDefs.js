@@ -26,7 +26,7 @@ const typeDefs = gql`
 
     type Query {
         me: User
-        movies(username: String): [Movie]
+        movies(email: String): [Movie]
         movie(movieId: ID!): Movie
     }
 

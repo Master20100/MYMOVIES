@@ -8,8 +8,8 @@ const resolvers = {
             return Movie.findOne({_id: movieId});
         },
 
-        movies: async (parent, { username }) => {
-            return User.find({username});
+        movies: async (parent, { email }) => {
+            return User.find({email});
         },
 
         me: async (parent, args, context) => {
