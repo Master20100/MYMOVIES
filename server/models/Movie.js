@@ -8,6 +8,10 @@ const movieSchema = new Schema({
         require: true,
         trim: true
     },
+    title: {
+        type: String,
+        require: true,
+    },
     description: {
         type: String,
         require: true,
@@ -16,19 +20,19 @@ const movieSchema = new Schema({
         type: String,
         require: true,
     },
-    rate: {
-        type: Number,
+    year: {
+        type: String,
         require: true,
-        min: 1,
-        max: 5,
+    },
+    rating: {
+        type: String,
+        require: true,
     },
     trailer: {
         type: String,
-        require: true,
     },
     live_stream_url: {
-        type: String,
-        require: true,
+        type: String,   
     }
 });
 
