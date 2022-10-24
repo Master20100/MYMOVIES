@@ -4,11 +4,11 @@ const { User} = require('../models');
 db.once('open', async () => {
 
   await User.create({
-    username: 'test@testmail.com',
+    email: 'testq@testmail.com',
     password: 'password12345'
   });
 
-  console.log('users seeded');
+  console.log("seeded");
 
   process.exit();
 });

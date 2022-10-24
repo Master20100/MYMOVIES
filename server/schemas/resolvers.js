@@ -21,11 +21,11 @@ const resolvers = {
     },
 
     Mutation: {
-        login: async (parent, {username, password}) => {
-            const user = await User.findOne({ username});
+        login: async (parent, {email, password}) => {
+            const user = await User.findOne({ email});
 
             if (!user) {
-                throw new AuthenticationError('No user found with this username');
+                throw new AuthenticationError('No user found with this email');
             }
 
             const correctPw = await user.isCorrectPassword(password);
@@ -39,8 +39,8 @@ const resolvers = {
             return { token, user };
         },
 
-        addUser: async (parent, { username, password }) => {
-            const user = await User.create({ username, password });
+        addUser: async (parent, { email, password }) => {
+            const user = await User.create({ email, password });
             const token = signToken(user);
             return { token, user };
         },
@@ -82,3 +82,5 @@ const resolvers = {
         }
     }
 };
+
+module.exports = resolvers;

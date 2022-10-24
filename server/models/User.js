@@ -4,7 +4,7 @@ const Movie = require('./Movie');
 const mongoose = require('mongoose');
 
 const userSchema = new Schema({
-    username: {
+    email: {
         type: String,
         require: true,
         trim: true,

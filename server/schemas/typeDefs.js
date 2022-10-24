@@ -3,7 +3,7 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     type User {
         _id: ID
-        username: String
+        email: String
         favourite_movies: [Movie]!
     }
 
@@ -31,8 +31,8 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        login(username: String!, password: String!): Auth
-        addUser(username: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
+        addUser(email: String!, password: String!): Auth
         addMovie(name: String!, title: String!, plot: String!, image: String!, rating: String!, year: String!, trailer: String, live_stream_url: String): Movie
         addFavouriteMovie(movieId: ID!): User
     }
