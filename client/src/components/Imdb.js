@@ -24,10 +24,7 @@ export default function Imdb() {
         } catch (err) {
           console.error(err);
         }
-      };
-
-
-    
+      };    
     const [movies, setMovies] = useState([])
     const fetchImdb = async () => {
         const tempTitle = [];
@@ -37,7 +34,6 @@ export default function Imdb() {
         const tempPlot = [];
         const tempImage = [];
         const data = [];
-        console.log(movies);
         for (let increment = 1; increment < 51 ; increment+=50) {
             await fetch(`https://www.imdb.com/search/title/?genres=comedy,action&start=${increment}&explore=title_type,genres&ref_=adv_nxt`)
             .then(res=>{
@@ -79,23 +75,18 @@ export default function Imdb() {
             })
         })
 // console.log(data);
+//setMovies only for display on dom not for console, runs async only for rendering
         setMovies(data);
-        console.log(movies);
-        console.log(movies.length);
-         const response = async()=>{await fetch("/api/users/saveData", {
-    method: "POST",
-    body: JSON.stringify(movies),
-    headers: { "Content-Type": "application/json" },
-  });}
-  response();
+        console.log(data.length);
+
+ 
         
-
-
     }
-
-    
-
-
+    const saveAll = async()=>{await fetch("/api/users/saveData", {
+        method: "POST",
+        body: JSON.stringify(movies),
+        headers: { "Content-Type": "application/json" },
+      });}
 
 
     return (
@@ -116,17 +107,9 @@ export default function Imdb() {
             </ul>
             <button onClick={saveMovie}>Save to favorites</button>
             </div>
-        ))
-        
-        
-        }
-        <button onClick={""}>save all</button>
+        ))}
+        {(movies.length > 1 ? (<button onClick={saveAll}>save all</button>): "")}
         </>
     )
 }
 
-// things to work on:-
-// 1) save all to appear only when results retrieved
-// 2) how to send all data of movies ? apollo client or normal fetch
-// 3) why array is empty when submit is clicked first then changed
-// 4) error that appear in console.

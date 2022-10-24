@@ -18,9 +18,8 @@ export const User = () => {
  <option value="title">Title</option>
 <option value="plot">Plot</option>
 </select>
-<input></input>
-<input type="Submit"></input>
-    
+<input type="Button" value="Go"/>
+<input type="Button" value="Saved movies"   />
 </form>
 </>
 )
