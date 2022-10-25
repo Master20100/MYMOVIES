@@ -1,4 +1,3 @@
-import './App.css';
 import Imdb from './components/Imdb';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
@@ -9,7 +8,7 @@ import Footer from './components/Footer';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { About } from './pages/About';
-
+import './App.css';
 
 
 const client = new ApolloClient({

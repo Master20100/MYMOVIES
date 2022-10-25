@@ -89,7 +89,6 @@ export default function Imdb() {
         });
     }
 
-
     return (
         <>
             <Link to="/">Log out </Link>
@@ -118,8 +117,11 @@ export default function Imdb() {
                 <option value="War">War</option>
                 <option value="Western">Western</option>
             </select>
-            {
-                movies.map(movie => (
+          
+            {(movies.length > 1 ?
+                (<><button onClick={saveAll}>save all</button>
+                <button onClick={saveAll}>save all</button>
+                {movies.map(movie => (
                     <div>
                         <ul>
                             <li className="title">{movie.title}</li>
@@ -133,13 +135,10 @@ export default function Imdb() {
                     </div>
                 )
 
-                )
-            }
-            {(movies.length > 1 ?
-                (<button onClick={saveAll}>save all</button>)
-
-
-
+                )}
+                
+                </>
+                 )
                 : "")}
         </>
     )
@@ -153,3 +152,5 @@ export default function Imdb() {
 // ---
 // 5) fix return 
 //6) ternary operator return more than 1 statement
+//7) to what extent is ant design for nav menu mainly, external css files for every page/component
+//8) stripe not compulsory
