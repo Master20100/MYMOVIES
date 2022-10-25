@@ -19,13 +19,15 @@ const getSavedMovies= ()=>{
 
 <form>
 <label for="filterBy">Filter by:</label>
-<select name="filterBy" >
+<select id="filterParameter" name="filterBy" >
  <option value="Rating">Rating</option>
 <option value="year">Year</option>
  <option value="title">Title</option>
 <option value="plot">Plot</option>
 </select>
-<input type="Button" value="Go"/>
+<input type="input"/>
+{/* <input type="Button" value={document.getElementById("filterParameter").value}/> */}
+<br/>
 <input type="Button" value="Saved movies"/>
 </form>
 </>

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 export default function Imdb() {
     const [addMovie, { error }] = useMutation(ADD_MOVIE);
     const saveMovie = async (event) => {
-        console.log(event.target.parentNode.querySelector('.title').innerHTML);
 
         event.preventDefault();
         try {
@@ -17,10 +16,9 @@ export default function Imdb() {
                     rating: event.target.parentNode.querySelector('.rating').innerHTML,
                     year: event.target.parentNode.querySelector('.year').innerHTML,
                     plot: event.target.parentNode.querySelector('.plot').innerHTML,
-                    image: event.target.parentNode.querySelector('.image').innerHTML,
+                    image: event.target.parentNode.querySelector('.image').src,
                 },
             });
-
         } catch (err) {
             console.error(err);
         }
@@ -34,7 +32,7 @@ export default function Imdb() {
         const tempPlot = [];
         const tempImage = [];
         const data = [];
-        for (let increment = 1; increment < 51; increment += 50) {
+        for (let increment = 1; increment < 52; increment += 50) {
             await fetch(`https://www.imdb.com/search/title/?genres=${genres}&start=${increment}&explore=title_type,genres&ref_=adv_nxt`)
                 .then(res => {
                     return res.text();
@@ -46,7 +44,7 @@ export default function Imdb() {
                     //filter title html blocks to get title number
 
                     tempTitle.push(...titlesBlocks.map(titleBlock => titleBlock.split(`title/`)[1]).map(title => title.split(`/?`)[0]));
-                    tempName.push(...titlesBlocks.map(titleBlock => titleBlock.split(`<img alt=`)[1]).map(name => name.split(`"\nclass=`)[0]));
+                    tempName.push(...titlesBlocks.map(titleBlock => titleBlock.split(`<img alt="`)[1]).map(name => name.split(`"\nclass=`)[0]));
                     // console.log("inside for",tempTitle[0]);
                     tempRating.push(...titlesBlocks.map(titlesBlock => titlesBlock.split(`strong>`)[1]).map(rating => {
                         try {
@@ -129,7 +127,7 @@ export default function Imdb() {
                             <li className="name">{movie.name}</li>
                             <li className="year">{movie.year}</li>
                             <li className="plot">{movie.plot}</li>
-                            <li className="image">{movie.image}</li>
+                            <img className="image" src={movie.image} alt={movie.title} width="250" height="300"/>
                         </ul>
                         <button onClick={saveMovie}>Save to favorites</button>
                     </div>
@@ -147,3 +145,11 @@ export default function Imdb() {
     )
 }
 
+// things to work on:-
+// 1) save all to appear only when results retrieved  JSON object normal fetch call
+// 2) how to send all data of movies ? apollo client or normal fetch
+// 3) why array is empty when submit is clicked first then changed
+// 4) error that appear in console.
+// ---
+// 5) fix return 
+//6) ternary operator return more than 1 statement
