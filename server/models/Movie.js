@@ -12,7 +12,7 @@ const movieSchema = new Schema({
         type: String,
         require: true,
     },
-    description: {
+    plot: {
         type: String,
         require: true,
     },
@@ -28,12 +28,6 @@ const movieSchema = new Schema({
         type: String,
         require: true,
     },
-    trailer: {
-        type: String,
-    },
-    live_stream_url: {
-        type: String,   
-    }
 });
 
 const Movie = mongoose.model('Movie', movieSchema);
