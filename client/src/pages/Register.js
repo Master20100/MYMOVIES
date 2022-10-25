@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import {Button} from "antd";
+import {Input} from "antd";
+import {Form} from "antd";
+
 
 export const Register = () => {
   const [registerCredentials, setRegisterCredentials] = useState({
@@ -44,27 +48,27 @@ export const Register = () => {
             <Link to="/Login">Login page</Link>
           </div>
         ) : (
-          <form onSubmit={handleFormSubmit}>
-            <input
+          <Form onSubmit={handleFormSubmit}>
+            <Input
               placeholder="email"
               name="email"
               type="email"
               value={registerCredentials.email}
               onChange={handleChange}
             />
-            <input
+            <Input
               placeholder="password"
               name="password"
               type="password"
               value={registerCredentials.password}
               onChange={handleChange}
             />
-            <button
+            <Button
               type="submit"
             >
               Register
-            </button>
-          </form>
+            </Button>
+          </Form>
         )}
 
         {error && (

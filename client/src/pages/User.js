@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import {Input} from "antd";
+import {Form} from "antd";
 export const User = () => {
 
 const getSavedMovies= ()=>{
@@ -17,7 +18,7 @@ const getSavedMovies= ()=>{
     <Link to="/Home">Sign Out </Link> 
    
 
-<form>
+<Form>
 <label for="filterBy">Filter by:</label>
 <select id="filterParameter" name="filterBy" >
  <option value="Rating">Rating</option>
@@ -25,11 +26,11 @@ const getSavedMovies= ()=>{
  <option value="title">Title</option>
 <option value="plot">Plot</option>
 </select>
-<input type="input"/>
+<Input type="input"/>
 {/* <input type="Button" value={document.getElementById("filterParameter").value}/> */}
 <br/>
-<input type="Button" value="Saved movies"/>
-</form>
+<Input type="Button" value="Saved movies"/>
+</Form>
 </>
 )
 }

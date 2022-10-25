@@ -3,6 +3,9 @@ import {Link}  from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import TokenAuth from '../utils/auth';
+import {Button} from "antd";
+import {Input} from "antd";
+import {Form} from "antd";
 
 export const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({ email:"", password:""});
@@ -37,7 +40,9 @@ export const Login = () => {
   };
 
   return (
+    
         <div >
+
           <h4 >Login</h4>
             {data ? (
               <div>
@@ -46,27 +51,27 @@ export const Login = () => {
                 <Link to="/">Back </Link> 
               </div>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
+              <Form onSubmit={handleFormSubmit}>
+                <Input
                   placeholder="email"
                   name="email"
                   type="email"
                   value={loginCredentials.email}
                   onChange={handleChange}
                 />
-                <input
+                <Input
                   placeholder="password"
                   name="password"
                   type="password"
                   value={loginCredentials.password}
                   onChange={handleChange}
                 />
-                <button
+                <Button
                   type="submit"
                 >
                   Login
-                </button>
-              </form>
+                </Button>
+              </Form>
             )}
 
             {error && (

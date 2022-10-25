@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_MOVIE } from '../utils/mutations';
 import { Link } from "react-router-dom";
+import {Button} from "antd";
+
 
 export default function Imdb() {
     const [addMovie, { error }] = useMutation(ADD_MOVIE);
@@ -92,7 +94,7 @@ export default function Imdb() {
     return (
         <>
             <Link to="/">Log out </Link>
-            <button onClick={()=>fetchImdb(document.getElementById("genres").value)}>Submit</button>
+            <Button onClick={()=>fetchImdb(document.getElementById("genres").value)}>Submit</Button>
             <select id="genres" >
                 <option value="Action">Action</option>
                 <option value="Adventure">Adventure</option>
@@ -119,8 +121,8 @@ export default function Imdb() {
             </select>
           
             {(movies.length > 1 ?
-                (<><button onClick={saveAll}>save all</button>
-                <button onClick={saveAll}>save all</button>
+                (<>
+                <Button onClick={saveAll}>save all</Button>
                 {movies.map(movie => (
                     <div>
                         <ul>
@@ -131,7 +133,7 @@ export default function Imdb() {
                             <li className="plot">{movie.plot}</li>
                             <img className="image" src={movie.image} alt={movie.title} width="250" height="300"/>
                         </ul>
-                        <button onClick={saveMovie}>Save to favorites</button>
+                        <Button onClick={saveMovie}>Save to favorites</Button>
                     </div>
                 )
 
