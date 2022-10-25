@@ -144,13 +144,3 @@ export default function Imdb() {
     )
 }
 
-// things to work on:-
-// 1) save all to appear only when results retrieved  JSON object normal fetch call
-// 2) how to send all data of movies ? apollo client or normal fetch
-// 3) why array is empty when submit is clicked first then changed
-// 4) error that appear in console.
-// ---
-// 5) fix return 
-//6) ternary operator return more than 1 statement
-//7) to what extent is ant design for nav menu mainly, external css files for every page/component
-//8) stripe not compulsory
