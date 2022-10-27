@@ -2,7 +2,7 @@ import decode from 'jwt-decode';
 
 class AuthService {
   getUser() {
-    return decode(this.getToken());
+    return (decode(this.getToken())).data;
   }
 
   loggedIn() {
@@ -12,10 +12,11 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    alert("login successful");
+    window.location.assign('/user');
   }
 
-  TokenExpired(token) {
+  isTokenExpired(token) {
     const decoded = decode(token);
     if (decoded.exp < Date.now() / 1000) {
       localStorage.removeItem('id_token');
@@ -30,7 +31,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem('id_token');
-    window.location.reload();
+    window.location.replace('/');
   }
 }
 

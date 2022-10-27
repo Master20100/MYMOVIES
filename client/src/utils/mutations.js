@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const ADD_MOVIE = gql`
-mutation addMovie(
+  mutation addMovie(
     $title: String!, 
     $name: String!, 
     $rating: String!,
@@ -10,12 +10,21 @@ mutation addMovie(
     $image: String!,
     
     ){
+      addMovie(
+        title: $title,
+        name: $name,
+        rating: $rating,
+        year: $year,
+        plot: $plot,
+        image: $image,
+      ){
         title
         name
         rating
         year
         plot
         image
+      }
     }
 
 `

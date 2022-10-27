@@ -13,12 +13,12 @@ export default function Imdb() {
         try {
             const { data } = await addMovie({
                 variables: {
-                    title: event.target.parentNode.querySelector('.title').innerHTML,
-                    name: event.target.parentNode.querySelector('.name').innerHTML,
-                    rating: event.target.parentNode.querySelector('.rating').innerHTML,
-                    year: event.target.parentNode.querySelector('.year').innerHTML,
-                    plot: event.target.parentNode.querySelector('.plot').innerHTML,
-                    image: event.target.parentNode.querySelector('.image').src,
+                    title: event.target.parentNode.parentElement.querySelector('.title').innerHTML,
+                    name: event.target.parentNode.parentElement.querySelector('.name').innerHTML,
+                    rating: event.target.parentNode.parentElement.querySelector('.rating').innerHTML,
+                    year: event.target.parentNode.parentElement.querySelector('.year').innerHTML,
+                    plot: event.target.parentNode.parentElement.querySelector('.plot').innerHTML,
+                    image: event.target.parentNode.parentElement.querySelector('.image').src,
                 },
             });
         } catch (err) {

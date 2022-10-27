@@ -67,7 +67,7 @@ export const Login = () => {
                   onChange={handleChange}
                 />
                 <Button
-                  type="submit"
+                  onClick={handleFormSubmit}
                 >
                   Login
                 </Button>

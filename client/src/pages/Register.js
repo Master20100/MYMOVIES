@@ -64,7 +64,7 @@ export const Register = () => {
               onChange={handleChange}
             />
             <Button
-              type="submit"
+              onClick={handleFormSubmit}
             >
               Register
             </Button>

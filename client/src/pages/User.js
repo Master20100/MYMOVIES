@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {Input} from "antd";
 import {Form} from "antd";
+import auth from '../utils/auth';
 export const User = () => {
 
 const getSavedMovies= ()=>{
@@ -9,13 +10,15 @@ const getSavedMovies= ()=>{
   
 }
  
-
+console.log("auth.loggedIn()", auth.loggedIn())
+console.log("auth.getUser()", auth.getUser())
   return (
     <>
+    <div>{auth.loggedIn()? auth.getUser().email:""}</div>
     <div>Saved movies</div>
     <Link to="/">Back </Link> 
     <Link to="/Imdb">Seacrh more </Link> 
-    <Link to="/Home">Sign Out </Link> 
+    <Link onClick={() =>{auth.logout();alert("logout successful")}}>Sign Out </Link> 
    
 
 <Form>
