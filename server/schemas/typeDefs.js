@@ -9,14 +9,12 @@ const typeDefs = gql`
 
     type Movie {
         _id: ID
-        name: String
         title: String
-        plot: String
-        image: String
+        name: String
         rating: String
         year: String
-        trailer: String
-        live_stream_url: String
+        plot: String
+        image: String
     }
 
     type Auth {
@@ -33,8 +31,9 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(email: String!, password: String!): Auth
-        addMovie(name: String!, title: String!, plot: String!, image: String!, rating: String!, year: String!, trailer: String, live_stream_url: String): Movie
+        addMovie(title: String!, name: String!, rating: String!, year: String!, plot: String!, image: String!): Movie
         addFavouriteMovie(movieId: ID!): User
+        deleteFavouriteMovie(movieId: ID!): User
     }
 `;
 
