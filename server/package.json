@@ -18,6 +18,9 @@
     "bcrypt": "^5.0.0",
     "jsonwebtoken": "^8.5.1"
   },
+  "engines": {
+    "node": "16.15.0"
+  },
   "devDependencies": {
     "nodemon": "^2.0.6"
   }

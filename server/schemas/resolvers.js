@@ -45,20 +45,22 @@ const resolvers = {
             return { token, user };
         },
 
-        addMovie: async (parent, { name, description, image, rate, trailer, live_stream_url}) => {
+        addMovie: async (parent, { title, name, rating, year, plot, image}) => {
             if (name &&
-                description &&
+                title &&
                 image &&
-                rate &&
-                trailer &&
-                live_stream_url) {
+                rating &&
+                plot &&
+                year
+                ) {
                     const movie = await Movie.create({
                         name: name,
-                        description: description,
+                        title: title,
                         image: image,
-                        rate: rate,
-                        trailer: trailer,
-                        live_stream_url: live_stream_url,
+                        rating: rating,
+                        plot: plot,
+                        year: plot,
+                        
                     });
                     return movie;
                 }
@@ -79,7 +81,24 @@ const resolvers = {
             };
 
             throw new AuthenticationError('You need to be logged in!');
-        }
+        },
+
+        deleteFavouriteMovie: async (parent, { movieId }, context) => {
+            if (context.user) {
+                return User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    {
+                        $pull: {
+                            favourite_movies: {
+                                _id: movieId,
+                            },
+                        },
+                    },
+                    { new: true }
+                );
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
     }
 };
 
