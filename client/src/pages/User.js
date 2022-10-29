@@ -12,6 +12,14 @@ export const User = () => {
 
   console.log("auth.loggedIn()", auth.loggedIn());
   console.log("auth.getUser()", auth.getUser());
+
+const deleteFromFavorites= ()=>{
+
+
+
+}
+
+
   return (
     <>
       <div>{auth.loggedIn() ? auth.getUser().email : ""}</div>
