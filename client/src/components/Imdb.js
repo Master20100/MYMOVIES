@@ -9,7 +9,7 @@ import TokenAuth from '../utils/auth';
 export default function Imdb() {
     const [addMovie, { error }] = useMutation(ADD_MOVIE);
     const saveMovie = async (event) => {
-       console.log(TokenAuth.getUser()._id);
+       console.log("year is " + event.target.parentNode.parentElement.querySelector('.year').innerHTML);
         event.preventDefault();
         try {
             const { data } = await addMovie({
@@ -17,8 +17,8 @@ export default function Imdb() {
                     title: event.target.parentNode.parentElement.querySelector('.title').innerHTML,
                     name: event.target.parentNode.parentElement.querySelector('.name').innerHTML,
                     rating: event.target.parentNode.parentElement.querySelector('.rating').innerHTML,
-                    year: event.target.parentNode.parentElement.querySelector('.year').innerHTML,
                     plot: event.target.parentNode.parentElement.querySelector('.plot').innerHTML,
+                    year: event.target.parentNode.parentElement.querySelector('.year').innerHTML,
                     image: event.target.parentNode.parentElement.querySelector('.image').src,
                 },
             });
@@ -95,7 +95,8 @@ export default function Imdb() {
     return (
         <>
             <Link to="/">Log out </Link>
-            <Button onClick={()=>fetchImdb(document.getElementById("genres").value)}>Submit</Button>
+            <Link to="/User">User page</Link>
+            <Button onClick={()=>fetchImdb(document.getElementById("genres").value)}>Search</Button>
             <select id="genres" >
                 <option value="Action">Action</option>
                 <option value="Adventure">Adventure</option>

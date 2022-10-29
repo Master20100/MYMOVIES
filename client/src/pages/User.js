@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Input } from "antd";
+import { Button, Input } from "antd";
 import { Form } from "antd";
 import auth from "../utils/auth";
 import { useLazyQuery } from "@apollo/client";
@@ -66,6 +66,7 @@ export const User = () => {
               height="200"
             />
           </ul>
+          <Button>Delete from favorites</Button>
         </div>
       ))}
     </>
