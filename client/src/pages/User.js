@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { Input } from "antd";
 import { Form } from "antd";
 import auth from "../utils/auth";
-// import { useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries";
 export const User = () => {
-  //const user = useQuery()
-  const getSavedMovies = () => {};
+  const [getUserInfo, { loading, data }] = useLazyQuery(QUERY_ME);
+
+  console.log("data", data);
 
   console.log("auth.loggedIn()", auth.loggedIn());
   console.log("auth.getUser()", auth.getUser());
@@ -36,12 +38,36 @@ export const User = () => {
         <Input type="input" />
         {/* <input type="Button" value={document.getElementById("filterParameter").value}/> */}
         <br />
-        <Input
-          type="Button"
-          onClick={() => getSavedMovies}
-          value="Saved movies"
-        />
+        <Input type="Button" onClick={getUserInfo} value="Saved movies" />
       </Form>
+      {data?.me.favourite_movies.map((movie) => (
+        <div>
+          <ul>
+            <li>
+              IMDB title: <span className="title">{movie.title}</span>
+            </li>
+            <li>
+              Rating:<span className="rating">{movie.rating}</span>
+            </li>
+            <li>
+              Movie name:<span className="name">{movie.name}</span>
+            </li>
+            <li>
+              Movie year:<span className="year">{movie.year}</span>
+            </li>
+            <li>
+              Plot:<span className="plot">{movie.plot}</span>
+            </li>
+            <img
+              className="image"
+              src={movie.image}
+              alt={movie.title}
+              width="150"
+              height="200"
+            />
+          </ul>
+        </div>
+      ))}
     </>
   );
 };

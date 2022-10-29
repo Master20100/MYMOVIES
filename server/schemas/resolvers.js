@@ -14,7 +14,7 @@ const resolvers = {
 
         me: async (parent, args, context) => {
             if (context.user) {
-                return User.findOne({ _id: context.user._id}).populate('movies');
+                return User.findOne({ _id: context.user._id}).populate('favourite_movies');
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -71,6 +71,14 @@ const resolvers = {
                             year: plot,
                             
                         });
+                        await User.findOneAndUpdate(
+                            { _id: context.user._id},
+                            {
+                                $addToSet: {
+                                    favourite_movies: movie,
+                                }
+                            },
+                        );
                         //
                         return movie;
                     }
