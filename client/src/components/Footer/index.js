@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Footer = () => {
+  
   return (
     <footer>
       <div>
-        <h4>My Movies - {new Date().getFullYear()} </h4>
+        <h3>My Movies - {new Date().getFullYear()} </h3>
       </div>
     </footer>
   );

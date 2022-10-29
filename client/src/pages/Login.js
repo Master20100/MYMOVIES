@@ -42,7 +42,7 @@ export const Login = () => {
   return (
     
         <div >
-
+          <Link to="/"> Back</Link>
           <h4 >Login</h4>
             {data ? (
               <div>

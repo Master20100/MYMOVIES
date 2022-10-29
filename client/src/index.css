@@ -1,0 +1,12 @@
+
+head{
+  title:"My Movies";
+}
+
+
+body{
+    background-image: url('./1.jpg');
+    width: auto;
+    height: auto;
+    min-height: 100%;
+}

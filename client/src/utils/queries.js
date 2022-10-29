@@ -11,3 +11,16 @@ query allMovies {
   }
 }
 `;
+
+
+export const QUERY_ME = gql`
+  me {
+    user {
+      name
+      _id
+      favorite_movies{
+        id
+      }
+    }
+  }
+`

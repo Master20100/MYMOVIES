@@ -1,0 +1,11 @@
+#Register{
+display: flexbox;
+flex-wrap: wrap;
+}
+
+.loginFields{
+    display: block;
+    width: 30%;
+    height: fit-content;
+    font-size: 20px;
+}

@@ -16,6 +16,12 @@ class AuthService {
     window.location.assign('/user');
   }
 
+  register(idToken) {
+    localStorage.setItem('id_token', idToken);
+    alert("Register successful");
+    // window.location.assign('/login');
+  }
+
   isTokenExpired(token) {
     const decoded = decode(token);
     if (decoded.exp < Date.now() / 1000) {

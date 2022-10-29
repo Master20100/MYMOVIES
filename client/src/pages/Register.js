@@ -6,6 +6,8 @@ import Auth from '../utils/auth';
 import {Button} from "antd";
 import {Input} from "antd";
 import {Form} from "antd";
+import './Register.css';
+
 
 
 export const Register = () => {
@@ -32,15 +34,15 @@ export const Register = () => {
         variables: { ...registerCredentials },
       });
 
-      Auth.login(data.addUser.token);
+      Auth.register(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
   };
 
   return (
-    <div >
-      <h4 >Register</h4>
+    <div id='Register'>
+      <h3 >Register</h3>
       <div >
         {data ? (
           <div>
@@ -50,6 +52,7 @@ export const Register = () => {
         ) : (
           <Form onSubmit={handleFormSubmit}>
             <Input
+              className='loginFields'
               placeholder="email"
               name="email"
               type="email"
@@ -57,6 +60,7 @@ export const Register = () => {
               onChange={handleChange}
             />
             <Input
+              className ='loginFields'
               placeholder="password"
               name="password"
               type="password"

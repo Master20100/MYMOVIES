@@ -46,9 +46,6 @@ function App() {
       path="/User"
       element={<User />}
       />
-   
-      
-
       </Routes>
 
 <Footer/>

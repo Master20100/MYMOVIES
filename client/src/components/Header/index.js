@@ -1,14 +1,15 @@
 import React from 'react';
+import './index.css';
 
 const Header = () => {
   return (
     <header >
-      <div >
-        <h1>
+      <div id='title'>
+        <h1 id="projectTitle">
           My Movies
         </h1>
         <p>
-          An updated movies database
+          <h2>A movies search engine</h2>
         </p>
       </div>
     </header>

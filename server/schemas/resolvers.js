@@ -40,32 +40,44 @@ const resolvers = {
         },
 
         addUser: async (parent, { email, password }) => {
-            const user = await User.create({ email, password });
-            const token = signToken(user);
-            return { token, user };
+            const existingUser = await User.findOne({email})
+            if (existingUser) {
+                // add logic if user exisits
+                throw new Error('Email exists');
+            }
+            else {
+                const user = await User.create({ email, password });
+                const token = signToken(user);
+                return { token, user };
+            }
+            
         },
 
-        addMovie: async (parent, { title, name, rating, year, plot, image}) => {
-            if (name &&
-                title &&
-                image &&
-                rating &&
-                plot &&
-                year
-                ) {
-                    const movie = await Movie.create({
-                        name: name,
-                        title: title,
-                        image: image,
-                        rating: rating,
-                        plot: plot,
-                        year: plot,
-                        
-                    });
-                    return movie;
-                }
-
-            throw new AuthenticationError('Wrong data input');
+        addMovie: async (parent, { title, name, rating, year, plot, image}, context) => {
+            if (context.user) {
+                if (name &&
+                    title &&
+                    image &&
+                    rating &&
+                    plot &&
+                    year
+                    ) {
+                        const movie = await Movie.create({
+                            name: name,
+                            title: title,
+                            image: image,
+                            rating: rating,
+                            plot: plot,
+                            year: plot,
+                            
+                        });
+                        //
+                        return movie;
+                    }
+    
+                throw new Error('Wrong data input');
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
 
         addFavouriteMovie: async (parent, {movieId}, context) => {

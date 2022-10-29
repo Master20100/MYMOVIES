@@ -1,17 +1,16 @@
 import React from 'react';
 import {Link}  from "react-router-dom";
+import './Home.css';
 
 
 
 export const Home = () => {
-  return (<>
-
-<Link to="/"> Home</Link>
-<Link to="/About">  About  </Link>
-<Link to="/login">Login </Link>
-<Link to="/Register">Register </Link> 
-</>
-
+  return (
+<div id='home'>
+<Link class='linksToPages' to="/Register">Register </Link> 
+<Link class='linksToPages' to="/login">Login </Link>
+<Link class='linksToPages' to="/About">  About  </Link>
+</div>
   
   )
 }

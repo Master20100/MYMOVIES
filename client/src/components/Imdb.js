@@ -3,12 +3,13 @@ import { useMutation } from '@apollo/client';
 import { ADD_MOVIE } from '../utils/mutations';
 import { Link } from "react-router-dom";
 import {Button} from "antd";
+import TokenAuth from '../utils/auth';
 
 
 export default function Imdb() {
     const [addMovie, { error }] = useMutation(ADD_MOVIE);
     const saveMovie = async (event) => {
-
+       console.log(TokenAuth.getUser()._id);
         event.preventDefault();
         try {
             const { data } = await addMovie({
@@ -34,7 +35,7 @@ export default function Imdb() {
         const tempPlot = [];
         const tempImage = [];
         const data = [];
-        for (let increment = 1; increment < 52; increment += 50) {
+        for (let increment = 1; increment < 51; increment += 50) {
             await fetch(`https://www.imdb.com/search/title/?genres=${genres}&start=${increment}&explore=title_type,genres&ref_=adv_nxt`)
                 .then(res => {
                     return res.text();
@@ -126,12 +127,12 @@ export default function Imdb() {
                 {movies.map(movie => (
                     <div>
                         <ul>
-                            <li className="title">{movie.title}</li>
-                            <li className="rating">{movie.rating}</li>
-                            <li className="name">{movie.name}</li>
-                            <li className="year">{movie.year}</li>
-                            <li className="plot">{movie.plot}</li>
-                            <img className="image" src={movie.image} alt={movie.title} width="250" height="300"/>
+                            <li>IMDB title: <span className="title">{movie.title}</span></li>
+                            <li>Rating:<span className="rating">{movie.rating}</span></li>
+                            <li>Movie name:<span className="name">{movie.name}</span></li>
+                            <li>Movie year:<span className="year">{movie.year}</span></li>
+                            <li>Plot:<span className="plot">{movie.plot}</span></li>
+                            <img className="image" src={movie.image} alt={movie.title} width="150" height="200"/>
                         </ul>
                         <Button onClick={saveMovie}>Save to favorites</Button>
                     </div>
