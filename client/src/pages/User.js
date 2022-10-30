@@ -25,18 +25,45 @@ const netFlix = async(e)=>{
     let titlesBlocks = page.split(`www.netflix.com/`);
     const netFlixTitleNumber = titlesBlocks[1].split('title/')[1].split(`"`)[0];
     const netFlixLink = `https://www.netflix.com/title/${netFlixTitleNumber}`;
+    window.open(netFlixLink, '_blank');
+
+  })}
+catch{
+  alert('movie not found on netflix');
+}
+
+}
+
+const stan = async(e)=>{
+  const movieName = e.target.parentNode.parentElement.parentElement.querySelector(".name").innerHTML.split(' ').join('+');
+  try{
+  await fetch(`https://www.google.com/search?q=site%3Astan.com+watch+"${movieName}"`)
+  .then(res => {
+      return res.text();
+  })
+  .then(page => {
+    console.log(page);
+    let titlesBlocks = page.split(`href="https://www.stan.com.au/watch/`);
+
+    const netFlixTitleNumber = titlesBlocks[1].split('title/')[1].split(`"`)[0];
+    const netFlixLink = `https://www.netflix.com/title/${netFlixTitleNumber}`;
    
     window.location.href = netFlixLink;
 
 
   })}
 catch{
-  alert('movie not found in netflix');
+  alert('movie not found on Stan');
+}
+
 }
 
 
 
-}
+
+
+
+
 
 
 export const User = () => {
@@ -94,6 +121,9 @@ export const User = () => {
             </li>
             <li>
               Links<Button onClick={(e)=>{netFlix(e)}}> Watch on netflix </Button>
+            </li>
+            <li>
+              Links<Button onClick={(e)=>{stan(e)}}> Watch on Stan </Button>
             </li>
             <img
               className="image"

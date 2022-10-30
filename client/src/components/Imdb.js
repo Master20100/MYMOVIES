@@ -15,8 +15,8 @@ export default function Imdb() {
         try {
             const { data } = await addMovie({
                 variables: {
-                    title: event.target.parentNode.parentElement.querySelector('.title').innerHTML,
                     name: event.target.parentNode.parentElement.querySelector('.name').innerHTML,
+                    title: event.target.parentNode.parentElement.querySelector('.title').innerHTML,
                     rating: event.target.parentNode.parentElement.querySelector('.rating').innerHTML,
                     plot: event.target.parentNode.parentElement.querySelector('.plot').innerHTML,
                     year: event.target.parentNode.parentElement.querySelector('.year').innerHTML,
@@ -37,7 +37,7 @@ export default function Imdb() {
         const tempImage = [];
         const data = [];
         for (let increment = 1; increment < noOfMovies; increment += 50) {
-            await fetch(`https://www.imdb.com/search/title/?genres=${genres}&start=${increment}&explore=title_type,genres&ref_=adv_nxt`)
+            await fetch(`https://www.imdb.com/search/title/?genres=${genres}&sort=num_votes,desc&start=${increment}&explore=title_type,genres&ref_=adv_nxt`)
                 .then(res => {
                     return res.text();
                 })
