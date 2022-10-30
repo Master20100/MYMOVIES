@@ -38,7 +38,8 @@ const stan = async(e)=>{
   const movieName = e.target.parentNode.parentElement.parentElement.querySelector(".name").innerHTML.split(' ').join('-');
   const movieYear = e.target.parentNode.parentElement.parentElement.querySelector(".year").innerHTML;
   const stanLink = `https://www.stan.com.au/watch/${movieName}-${movieYear}`;
-console.log(stanLink);
+  window.open(stanLink, '_blank');
+
 //   const movieName = e.target.parentNode.parentElement.parentElement.querySelector(".name").innerHTML.split(' ').join('+');
 //   try{
 //   // await fetch(`https://www.google.com/search?q=site%3Astan.com.au+watch+"${movieName}"`)
