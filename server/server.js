@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 const MONGODB_URI = process.env.MONGODB_URI;
-
+const cors = require('cors');
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -19,6 +19,9 @@ const server = new ApolloServer({
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors({
+  origin: true
+}));
 
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static(path.join(__dirname, '../client/build')));
