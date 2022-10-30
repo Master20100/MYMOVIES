@@ -35,26 +35,33 @@ catch{
 }
 
 const stan = async(e)=>{
-  const movieName = e.target.parentNode.parentElement.parentElement.querySelector(".name").innerHTML.split(' ').join('+');
-  try{
-  await fetch(`https://www.google.com/search?q=site%3Astan.com+watch+"${movieName}"`)
-  .then(res => {
-      return res.text();
-  })
-  .then(page => {
-    console.log(page);
-    let titlesBlocks = page.split(`href="https://www.stan.com.au/watch/`);
+  const movieName = e.target.parentNode.parentElement.parentElement.querySelector(".name").innerHTML.split(' ').join('-');
+  const movieYear = e.target.parentNode.parentElement.parentElement.querySelector(".year").innerHTML;
+  const stanLink = `https://www.stan.com.au/watch/${movieName}-${movieYear}`;
+console.log(stanLink);
+//   const movieName = e.target.parentNode.parentElement.parentElement.querySelector(".name").innerHTML.split(' ').join('+');
+//   try{
+//   // await fetch(`https://www.google.com/search?q=site%3Astan.com.au+watch+"${movieName}"`)
+//   await fetch(`https://www.google.com/search?q=site%3Astan.com.au+watch+%22Inception%22`)
 
-    const netFlixTitleNumber = titlesBlocks[1].split('title/')[1].split(`"`)[0];
-    const netFlixLink = `https://www.netflix.com/title/${netFlixTitleNumber}`;
+//   .then(res => {
+//       return res.text();
+//   })
+//   .then(page => {
+//     // console.log(page);
+//     let titlesBlocks = page.split(`https://www.stan.com.au/watch/`);
+//     console.log(titlesBlocks[0]);
+//     const netFlixTitleNumber = titlesBlocks[1].split('title/')[1].split(`"`)[0];
+//     const netFlixLink = `https://www.netflix.com/title/${netFlixTitleNumber}`;
    
-    window.location.href = netFlixLink;
+//     window.location.href = netFlixLink;
 
 
-  })}
-catch{
-  alert('movie not found on Stan');
-}
+//   })}
+// catch{
+
+//   alert('movie not found on Stan');
+// }
 
 }
 
