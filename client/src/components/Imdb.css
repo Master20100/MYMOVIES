@@ -74,6 +74,13 @@
                   #genres{
                     font-size: 28px;
                 }
+                  #noOfMovies{
+                    font-size: 28px;
+                }
                 
-        
-        
+              
+                .movieBlock{
+                  background-color: beige;
+                  
+                  }
+              

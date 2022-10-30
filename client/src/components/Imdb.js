@@ -28,7 +28,7 @@ export default function Imdb() {
         }
     };
     const [movies, setMovies] = useState([])
-    const fetchImdb = async (genres) => {
+    const fetchImdb = async (genres,noOfMovies) => {
         const tempTitle = [];
         const tempName = [];
         const tempRating = [];
@@ -36,7 +36,9 @@ export default function Imdb() {
         const tempPlot = [];
         const tempImage = [];
         const data = [];
-        for (let increment = 1; increment < 51; increment += 50) {
+        for (let increment = 1; increment < noOfMovies; increment += 50) {
+            console.log(noOfMovies);
+            console.log(genres);
             await fetch(`https://www.imdb.com/search/title/?genres=${genres}&start=${increment}&explore=title_type,genres&ref_=adv_nxt`)
                 .then(res => {
                     return res.text();
@@ -96,7 +98,7 @@ export default function Imdb() {
         <div id="Imdb">
             <Link class="ImdbFields" to="/">Log out </Link>
             <Link class="ImdbFields" to="/User">User page</Link>
-            <Button id="ImdbButton" onClick={()=>fetchImdb(document.getElementById("genres").value)}>Search</Button>
+            <Button id="ImdbButton" onClick={()=>fetchImdb(document.getElementById("genres").value,document.getElementById("noOfMovies").value,)}>Search</Button>
             <select id="genres" >
                 <option value="Action">Action</option>
                 <option value="Adventure">Adventure</option>
@@ -121,13 +123,19 @@ export default function Imdb() {
                 <option value="War">War</option>
                 <option value="Western">Western</option>
             </select>
+            <select id="noOfMovies" >
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+            </select>
           
             {(movies.length > 1 ?
                 (<>
                 <Button onClick={saveAll}>save all</Button>
                 {movies.map(movie => (
                     <div>
-                        <ul>
+                        <ul className="movieBlock">
                             <li>IMDB title: <span className="title">{movie.title}</span></li>
                             <li>Rating:<span className="rating">{movie.rating}</span></li>
                             <li>Movie name:<span className="name">{movie.name}</span></li>
