@@ -9,6 +9,7 @@ import "./Imdb.css";
 
 export default function Imdb() {
     const [addMovie, { error }] = useMutation(ADD_MOVIE);
+    
     const saveMovie = async (event) => {
        console.log("year is " + event.target.parentNode.parentElement.querySelector('.year').innerHTML);
         event.preventDefault();
@@ -37,8 +38,6 @@ export default function Imdb() {
         const tempImage = [];
         const data = [];
         for (let increment = 1; increment < noOfMovies; increment += 50) {
-            console.log(noOfMovies);
-            console.log(genres);
             await fetch(`https://www.imdb.com/search/title/?genres=${genres}&start=${increment}&explore=title_type,genres&ref_=adv_nxt`)
                 .then(res => {
                     return res.text();
@@ -81,7 +80,6 @@ export default function Imdb() {
         // console.log(data);
         //setMovies only for display on dom not for console, runs async only for rendering
         setMovies(data);
-        console.log(data.length);
 
 
 

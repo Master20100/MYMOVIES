@@ -68,7 +68,7 @@ const resolvers = {
                             image: image,
                             rating: rating,
                             plot: plot,
-                            year: plot,
+                            year: year,
                             
                         });
                         await User.findOneAndUpdate(
@@ -105,7 +105,7 @@ const resolvers = {
 
         deleteFavouriteMovie: async (parent, { movieId }, context) => {
             if (context.user) {
-                return User.findOneAndUpdate(
+                return User.findOneAndDelete(
                     { _id: context.user._id },
                     {
                         $pull: {

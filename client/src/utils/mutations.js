@@ -26,8 +26,7 @@ export const ADD_MOVIE = gql`
         image
       }
     }
-
-`
+`;
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -53,6 +52,10 @@ export const ADD_USER = gql`
   }
 `;
 
-
-
-;
+export const DELETE_MOVIE = gql`
+  mutation deleteFavouriteMovie($movie: String!) {
+    deleteFavouriteMovie(movie: $movie) {
+      _id
+    }
+  }
+`;
