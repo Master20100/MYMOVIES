@@ -8,7 +8,6 @@ db.once('open', async () => {
     password: 'password12345'
   });
 
-  console.log("seeded");
 
   process.exit();
 });

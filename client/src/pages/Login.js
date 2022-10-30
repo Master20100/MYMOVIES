@@ -6,6 +6,8 @@ import TokenAuth from '../utils/auth';
 import {Button} from "antd";
 import {Input} from "antd";
 import {Form} from "antd";
+import './Login.css';
+
 
 export const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({ email:"", password:""});
@@ -41,8 +43,8 @@ export const Login = () => {
 
   return (
     
-        <div >
-          <Link to="/"> Back</Link>
+        <div id='Login'>
+          <Link id="backLink" to="/"> Back</Link>
           <h4 >Login</h4>
             {data ? (
               <div>
@@ -53,6 +55,7 @@ export const Login = () => {
             ) : (
               <Form onSubmit={handleFormSubmit}>
                 <Input
+                  className='loginFields'
                   placeholder="email"
                   name="email"
                   type="email"
@@ -60,13 +63,14 @@ export const Login = () => {
                   onChange={handleChange}
                 />
                 <Input
+                  className='loginFields'
                   placeholder="password"
                   name="password"
                   type="password"
                   value={loginCredentials.password}
                   onChange={handleChange}
                 />
-                <Button
+                <Button id='loginButton'
                   onClick={handleFormSubmit}
                 >
                   Login

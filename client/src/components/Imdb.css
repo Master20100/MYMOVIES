@@ -1,0 +1,79 @@
+
+          #Imdb{
+            display: flexbox;
+            flex-wrap: wrap;
+            font-size: 28px;
+            }
+            
+            .ImdbFields{
+              width: 70%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+              font-size: 28px;  
+            }
+            
+            .ImdbFields {
+                    display: block;
+                    width: 95%;
+                    border-radius: 4px;
+                    background-color: #f4511e;
+                    border: none;
+                    color: black;
+                    text-align: center;
+                    font-size: 28px;
+                    padding: 20px;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                    margin: 25px;
+                  }
+            #ImdbButton {
+                    display: block;
+                    width: 95%;
+                    border-radius: 4px;
+                    background-color: #f4511e;
+                    border: none;
+                    color: black;
+                    text-align: center;
+                    font-size: 28px;
+                    padding: 20px;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                    margin: 25px;
+                  }
+                  
+            #ImdbButton span {
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    transition: 0.5s;
+                  }
+                  
+            #ImdbButton span:after {
+                    content: '\00bb';
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s;
+                  }
+                  
+            #ImdbButton:hover span {
+                    padding-right: 25px;
+                  }
+                  
+            #ImdbButton:hover span:after {
+                    opacity: 1;
+                    right: 0;
+                  }
+            
+            
+                  #genres{
+                    font-size: 28px;
+                }
+                
+        
+        

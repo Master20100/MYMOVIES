@@ -1,0 +1,112 @@
+#links{
+display:flexbox;
+flex-wrap: wrap;
+font-size: 28px;
+width: 100%;
+align-items: center;
+align-content: center;
+justify-content: center;
+}
+
+
+
+
+#savedResultsButton {
+    display: block;
+    width: 95%;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 25px;
+  }
+  
+#savedResultsButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+#savedResultsButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+#savedResultsButton:hover span {
+    padding-right: 25px;
+  }
+  
+#savedResultsButton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+
+.linkToPages {
+    display: block;
+    width: 95%;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 28px;
+    padding: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 25px;
+    justify-content: center;
+  }
+  
+.linkToPages span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+.linkToPages span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+.linkToPages:hover span {
+    padding-right: 25px;
+  }
+  
+.linkToPages:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+.movieBlock{
+background-color: beige;
+
+}
+
+#filterForm{
+    font-size: 28px;
+}
+
+#filterParameter, #filterInput{
+  width: 150px;
+  font-size: 28px;
+}
+
+#filterLabel{
+  background-color: #f4511e;
+}

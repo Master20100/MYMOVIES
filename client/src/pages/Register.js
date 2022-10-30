@@ -42,17 +42,18 @@ export const Register = () => {
 
   return (
     <div id='Register'>
+      <Link id="backLink" to="/"> Back</Link>
       <h3 >Register</h3>
       <div >
         {data ? (
-          <div>
-            Success! please go to login page
+          <div id='successMsg'>
+            Success! please go to login page<br/>
             <Link to="/Login">Login page</Link>
           </div>
         ) : (
           <Form onSubmit={handleFormSubmit}>
             <Input
-              className='loginFields'
+              className='registerFields'
               placeholder="email"
               name="email"
               type="email"
@@ -60,14 +61,14 @@ export const Register = () => {
               onChange={handleChange}
             />
             <Input
-              className ='loginFields'
+              className ='registerFields'
               placeholder="password"
               name="password"
               type="password"
               value={registerCredentials.password}
               onChange={handleChange}
             />
-            <Button
+            <Button id='registerButton'
               onClick={handleFormSubmit}
             >
               Register
@@ -76,11 +77,10 @@ export const Register = () => {
         )}
 
         {error && (
-          <div >
+          <div id='error'>
             {error.message}  Registration Failed
           </div>
         )}
-        <Link to="/">Back </Link>
       </div>
     </div>
   );

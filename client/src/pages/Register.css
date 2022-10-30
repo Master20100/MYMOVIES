@@ -1,11 +1,70 @@
-#Register{
-display: flexbox;
-flex-wrap: wrap;
+#Register {
+  display: flexbox;
+  flex-wrap: wrap;
+  font-size: 28px;
+  }
+
+.registerFields{
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 28px;  
 }
 
-.loginFields{
-    display: block;
-    width: 30%;
-    height: fit-content;
-    font-size: 20px;
+#registerButton {
+        display: block;
+        width: 95%;
+        border-radius: 4px;
+        background-color: #f4511e;
+        border: none;
+        color: black;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 25px;
+      }
+      
+#registerButton span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+      
+#registerButton span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+      
+#registerButton:hover span {
+        padding-right: 25px;
+      }
+      
+#registerButton:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+
+#error{
+font-size: larger;
+color: white;
+}
+
+
+#successMsg {
+font-size: 28px;
+}
+
+#backButton {
+font-size: 28px;
 }

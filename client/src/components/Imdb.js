@@ -4,6 +4,7 @@ import { ADD_MOVIE } from '../utils/mutations';
 import { Link } from "react-router-dom";
 import {Button} from "antd";
 import TokenAuth from '../utils/auth';
+import "./Imdb.css";
 
 
 export default function Imdb() {
@@ -48,7 +49,6 @@ export default function Imdb() {
 
                     tempTitle.push(...titlesBlocks.map(titleBlock => titleBlock.split(`title/`)[1]).map(title => title.split(`/?`)[0]));
                     tempName.push(...titlesBlocks.map(titleBlock => titleBlock.split(`<img alt="`)[1]).map(name => name.split(`"\nclass=`)[0]));
-                    // console.log("inside for",tempTitle[0]);
                     tempRating.push(...titlesBlocks.map(titlesBlock => titlesBlock.split(`strong>`)[1]).map(rating => {
                         try {
                             return rating.split(`<`)[0]
@@ -93,10 +93,10 @@ export default function Imdb() {
     }
 
     return (
-        <>
-            <Link to="/">Log out </Link>
-            <Link to="/User">User page</Link>
-            <Button onClick={()=>fetchImdb(document.getElementById("genres").value)}>Search</Button>
+        <div id="Imdb">
+            <Link class="ImdbFields" to="/">Log out </Link>
+            <Link class="ImdbFields" to="/User">User page</Link>
+            <Button id="ImdbButton" onClick={()=>fetchImdb(document.getElementById("genres").value)}>Search</Button>
             <select id="genres" >
                 <option value="Action">Action</option>
                 <option value="Adventure">Adventure</option>
@@ -144,7 +144,7 @@ export default function Imdb() {
                 </>
                  )
                 : "")}
-        </>
+        </div>
     )
 }
 
