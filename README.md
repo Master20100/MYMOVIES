@@ -4,7 +4,7 @@ The project has been developed for useres to look for movies.
 # Table of Contents
 1. [Description](#Description)
 2. [Get_Started](#Get_Started)
-3. [Using the Application](#Using the Application)
+3. [Using the Application](#Using_the_Application)
 4. [Collaborators](#Collaborators)
 3. [Deployment](#Deployment)
 3. [Questions](#Questions)
