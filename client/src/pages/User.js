@@ -13,6 +13,31 @@ import "./User.css";
 //   const [deleteMovie, { loading, data }] = useLazyQuery(DELETE_MOVIE);
 
 // }
+const movieLinks = []
+const netFlix = async(e)=>{
+  const movieName = e.target.parentNode.parentElement.parentElement.querySelector(".name").innerHTML.split(' ').join('+');
+  try{
+  await fetch(`https://www.google.com/search?q=site%3Anetflix.com+watch+"${movieName}"`)
+  .then(res => {
+      return res.text();
+  })
+  .then(page => {
+    let titlesBlocks = page.split(`www.netflix.com/`);
+    const netFlixTitleNumber = titlesBlocks[1].split('title/')[1].split(`"`)[0];
+    const netFlixLink = `https://www.netflix.com/title/${netFlixTitleNumber}`;
+   
+    window.location.href = netFlixLink;
+
+
+  })}
+catch{
+  alert('movie not found in netflix');
+}
+
+
+
+}
+
 
 export const User = () => {
   const [getUserInfo, { loading, data }] = useLazyQuery(QUERY_ME);
@@ -66,6 +91,9 @@ export const User = () => {
             </li>
             <li>
               Plot:<span className="plot">{movie.plot}</span>
+            </li>
+            <li>
+              Links<Button onClick={(e)=>{netFlix(e)}}> Watch on netflix </Button>
             </li>
             <img
               className="image"

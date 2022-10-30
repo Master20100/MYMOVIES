@@ -11,7 +11,6 @@ export default function Imdb() {
     const [addMovie, { error }] = useMutation(ADD_MOVIE);
     
     const saveMovie = async (event) => {
-       console.log("year is " + event.target.parentNode.parentElement.querySelector('.year').innerHTML);
         event.preventDefault();
         try {
             const { data } = await addMovie({
