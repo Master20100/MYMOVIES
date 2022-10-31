@@ -94,7 +94,8 @@ justify-content: center;
   }
 
 .movieBlock{
-background-color: beige;
+/* background-color: beige; */
+color: greenyellow;
 
 }
 

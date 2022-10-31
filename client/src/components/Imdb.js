@@ -129,7 +129,7 @@ export default function Imdb() {
           
             {(movies.length > 1 ?
                 (<>
-                <Button onClick={saveAll}>save all</Button>
+                {/* <Button onClick={saveAll}>save all</Button> */}
                 {movies.map(movie => (
                     <div>
                         <ul className="movieBlock">

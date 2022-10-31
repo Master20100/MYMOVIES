@@ -129,6 +129,9 @@ export const User = () => {
             <li>
               Links<Button onClick={(e)=>{stan(e)}}> Watch on Stan </Button>
             </li>
+            <li>
+              Links<Button onClick={(e)=>window.open(`http://www.imdb.com/title/${e.target.parentNode.parentElement.parentElement.querySelector(".title").innerHTML}`, '_blank')}> Imdb Link </Button>
+            </li>
             <img
               className="image"
               src={movie.image}
