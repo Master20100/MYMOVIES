@@ -18,7 +18,7 @@ import "./App.css";
 import { Button } from "antd";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://zixin-my-movies.herokuapp.com/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
